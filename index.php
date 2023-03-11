@@ -14,10 +14,27 @@ App::plugin('maxchene/typesense', [
             // delete typesense document
         },
         'page.update:after' => function (Kirby\Cms\Page $newPage, Kirby\Cms\Page $oldPage) {
-            // your code goes here
-            $client = new \Maxchene\Typesense\TypesenseClient();
-            $response = $client->get('health');
-            dump($response);
+            // check that page is in options
+
+            $config = option('maxchene.typesense.templates');
+            $templates = array_keys($config);
+            $template = $newPage->template()->name();
+
+            if (in_array($template, $templates)) {
+                $normalizer = $config[$template]['normalizer'];
+                $client = new \Maxchene\Typesense\TypesenseClient();
+
+                $data = $normalizer($newPage);
+                $data = array_merge($data, [
+                    'id' => $newPage->uuid()->id(),
+                    'title' => $newPage->title()->value(),
+                ]);
+                dd($data instanceof \Closure);
+
+
+                //upsert data
+            }
+
             return $newPage;
         },
         'page.changeStatus:after' => function (Page $newPage, Page $oldPage) {
