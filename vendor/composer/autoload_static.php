@@ -7,9 +7,9 @@ namespace Composer\Autoload;
 class ComposerStaticInit13b79a3c5dc7136d11f29c285d26ebcc
 {
     public static $prefixLengthsPsr4 = array (
-        'S' => 
+        'M' => 
         array (
-            'Superwoman\\Superplugin\\' => 23,
+            'Maxchene\\Typesense\\' => 19,
         ),
         'K' => 
         array (
@@ -18,7 +18,7 @@ class ComposerStaticInit13b79a3c5dc7136d11f29c285d26ebcc
     );
 
     public static $prefixDirsPsr4 = array (
-        'Superwoman\\Superplugin\\' => 
+        'Maxchene\\Typesense\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
@@ -34,7 +34,9 @@ class ComposerStaticInit13b79a3c5dc7136d11f29c285d26ebcc
         'Kirby\\ComposerInstaller\\Installer' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/Installer.php',
         'Kirby\\ComposerInstaller\\Plugin' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/Plugin.php',
         'Kirby\\ComposerInstaller\\PluginInstaller' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/PluginInstaller.php',
-        'Superwoman\\Superplugin\\Superclass' => __DIR__ . '/../..' . '/src/Superclass.php',
+        'Maxchene\\Typesense\\TypesenseClient' => __DIR__ . '/../..' . '/src/TypesenseClient.php',
+        'Maxchene\\Typesense\\TypesenseException' => __DIR__ . '/../..' . '/src/TypesenseException.php',
+        'Maxchene\\Typesense\\cool' => __DIR__ . '/../..' . '/src/cool.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
