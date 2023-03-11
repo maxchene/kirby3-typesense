@@ -1,0 +1,30 @@
+{
+    "name": "maximechene/kirby3-typesense",
+    "description": "Kirby plugin that use typesense for quick search",
+    "license": "MIT",
+    "type": "kirby-plugin",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Maxime CHENE",
+            "email": "maxime@kaliel.fr"
+        }
+    ],
+    "require": {
+        "getkirby/composer-installer": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Maxchene\\Typesense\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "getkirby/composer-installer": true
+        }
+    },
+    "extra": {
+        "installer-name": "typesense"
+    }
+}
