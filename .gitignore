@@ -5,6 +5,7 @@
 /node_modules
 
 # files of Composer dependencies that are not needed for the plugin
+vendor
 /vendor/**/.*
 /vendor/**/*.json
 /vendor/**/*.txt
