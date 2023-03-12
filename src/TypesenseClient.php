@@ -56,7 +56,7 @@ class TypesenseClient
         ];
         $response = Remote::request("{$this->host}/collections/{$endpoint}", $requestParams);
 
-        if ($response->code() >= 200 && $response->code() < 300) {
+        if (($response->code() >= 200 && $response->code() < 300) || $method === 'DELETE') {
             return $response->json();
         }
 
