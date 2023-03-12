@@ -15,12 +15,15 @@ This plugin allow you to index kirby pages into typesense and make fulltext sear
 
 To use this plugin, you need to [install Typesense on your server](https://typesense.org/docs/guide/install-typesense.html).
 
+<br/>
 
 ## 2. Install the Kirby Typesense plugin
 
 Download and copy this repository to ```/site/plugins/typesense```
 
 Or even better, to get easy updates, install it with composer: ```composer require maxchene/kirby3-typesense```
+
+<br/>
 
 ## 3. Configuration
 
@@ -54,6 +57,8 @@ Here is what it should look like:
         ]
     ]
 ```
+
+<br/>
 
 ### 3.1 Schema configuration
 
