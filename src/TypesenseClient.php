@@ -54,7 +54,7 @@ class TypesenseClient
             'method' => $method,
             'data' => json_encode($data)
         ];
-        $response = Remote::request("{$this->host}/{$endpoint}", $requestParams);
+        $response = Remote::request("{$this->host}/collections/{$endpoint}", $requestParams);
 
         if ($response->code() >= 200 && $response->code() < 300) {
             return $response->json();
