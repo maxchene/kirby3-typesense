@@ -4,6 +4,7 @@ namespace Maxchene\Typesense;
 
 use Closure;
 use Kirby\Cms\Page;
+use RuntimeException;
 
 class TypesenseDocument
 {
@@ -13,8 +14,7 @@ class TypesenseDocument
     private readonly array $schema;
 
     public function __construct(
-        private readonly Page    $page,
-        private readonly Closure $normalizer
+        private readonly Page $page
     )
     {
         $this->client = new TypesenseClient();
@@ -34,6 +34,11 @@ class TypesenseDocument
      */
     public function upsert()
     {
+
+        if (empty($this->normalizer)) {
+            throw new RuntimeException('Missing normalizer closure for Page template ' . $this->page->template()->name());
+        }
+
         $data = ($this->normalizer)($this->page);
         $data = array_merge($data, [
             'id' => $this->page->uuid()->id(),
@@ -53,6 +58,12 @@ class TypesenseDocument
         }
     }
 
+    public function setNormalizer(Closure $normalizer): TypesenseDocument
+    {
+        $this->normalizer = $normalizer;
+        return $this;
+    }
+
     private function createCollection(): void
     {
         $this->client->post('', $this->schema);
@@ -62,11 +73,11 @@ class TypesenseDocument
     {
         $schema = option('maxchene.typesense.schema');
         if (empty($schema)) {
-            throw new \RuntimeException('Schema configuration is missing from config file');
+            throw new RuntimeException('Schema configuration is missing from config file');
         }
 
         if (empty($schema['name'])) {
-            throw new \RuntimeException('Collection name is missing from config file');
+            throw new RuntimeException('Collection name is missing from config file');
         }
 
         $schema['fields'][] = ['name' => 'title', 'type' => 'string'];
