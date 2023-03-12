@@ -24,9 +24,20 @@ App::plugin('maxchene/typesense', [
                 $templates = array_keys($config);
                 $template = $newPage->template()->name();
 
+                // check that page template is in config file
                 if (in_array($template, $templates) && $newPage->status() !== 'draft') {
                     $document = new TypesenseDocument($newPage, $config[$template]);
-                    $document->upsert();
+
+                    if (
+                        $event->action() === 'update' ||
+                        $event->action() === 'changeTitle' ||
+                        $event->action() === 'changeStatus' && in_array($newPage->status(), ['listed', 'unlisted'])
+                    ) {
+                        $document->upsert();
+                    } else {
+                        $document->delete();
+                    }
+
                 }
             }
         }

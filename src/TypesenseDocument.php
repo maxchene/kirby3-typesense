@@ -21,6 +21,17 @@ class TypesenseDocument
         $this->buildSchema();
     }
 
+    /**
+     * Upsert is a shortcut for either update or insert
+     * Meaning that if a document with current id already exists, document will be updated
+     * and if not, a new document will be created
+     *
+     * Note that id and title fields are mandatory
+     * and always added to fields you provided in config file
+     *
+     * @return void
+     * @throws \Kirby\Exception\InvalidArgumentException
+     */
     public function upsert()
     {
         $data = ($this->normalizer)($this->page);
@@ -67,6 +78,12 @@ class TypesenseDocument
         return $this->schema['name'];
     }
 
+    /**
+     * Delete document from Typesense index
+     * so that it won't show up in search results
+     *
+     * @return void
+     */
     public function delete(): void
     {
         $endpoint = $this->getCollectionName() . '/documents/' . $this->page->uuid()->id();
