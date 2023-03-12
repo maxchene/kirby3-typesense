@@ -10,7 +10,7 @@ This plugin allow you to index kirby pages into typesense and make fulltext sear
 
 Download and copy this repository to ```/site/plugins/typesense```
 
-Even better, install it with composer: ```composer require maxchene/kirby3-typesense```
+Or even better, to get easy updates, install it with composer: ```composer require maxchene/kirby3-typesense```
 
 ## 3. Configuration
 
