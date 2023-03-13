@@ -40,8 +40,6 @@ Here is what it should look like:
         'schema' => [
             'name' => 'my-collection',
             'fields' => [
-                // ['name' => 'id', 'type' => 'string'], no need since typesense automatically add id
-                // ['name' => 'title', 'type' => 'string'], no need, title is always added to document
                 ['name' => 'content', 'type' => 'string'],
                 ['name' => 'type', 'type' => 'string']
             ]
