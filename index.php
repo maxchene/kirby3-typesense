@@ -4,16 +4,19 @@ use Kirby\Cms\App;
 use Kirby\Cms\Page;
 use Maxchene\Typesense\TypesenseConfig;
 use Maxchene\Typesense\TypesenseDocument;
+use Maxchene\Typesense\TypesenseSearch;
 
 @include_once __DIR__ . '/vendor/autoload.php';
 
 App::plugin('maxchene/typesense', [
     'options' => [
-        'host' => 'localhost:8108'
+        'host' => 'localhost:8108',
+        'num_typos' => 2,
     ],
     'siteMethods' => [
         'typesenseSearch' => function (string $query): array {
-            return [];
+            $searchEngine = new TypesenseSearch();
+            return $searchEngine->search($query);
         }
     ],
     'hooks' => [
