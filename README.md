@@ -8,12 +8,13 @@ This plugin allow you to index kirby pages into typesense and make fulltext sear
 
 ### 1.1 What is Typesense ?
 
-[Typesense](https://typesense.org) is an opensource alternative for Algolia or ElasticSearch. It is free and provide a fast typo tolerant search engine.
-
+[Typesense](https://typesense.org) is an opensource alternative for Algolia or ElasticSearch. It is free and provide a
+fast typo tolerant search engine.
 
 ### 1.2 Install Typesense
 
-To use this plugin, you need to [install Typesense on your server](https://typesense.org/docs/guide/install-typesense.html).
+To use this plugin, you need
+to [install Typesense on your server](https://typesense.org/docs/guide/install-typesense.html).
 
 <br/>
 
@@ -33,8 +34,9 @@ Here is what it should look like:
 
 ```php
 'maxchene.typesense' => [
-        'host' => 'typesense:8108',
-        'key' => 'secret',
+        'host' => 'localhost:8108', # typesense host and port
+        'key' => 'secret', # typesense API key
+        'num_typos' => 2, # number of allowed typo error
         'schema' => [
             'name' => 'my-collection',
             'fields' => [
@@ -63,3 +65,7 @@ Here is what it should look like:
 ### 3.1 Schema configuration
 
 ### 3.2 Templates configuration
+
+## 4. Use fulltext search
+
+## 5. Full configuration exemple
