@@ -2,6 +2,7 @@
 
 use Kirby\Cms\App;
 use Kirby\Cms\Page;
+use Maxchene\Typesense\SearchResult;
 use Maxchene\Typesense\TypesenseConfig;
 use Maxchene\Typesense\TypesenseDocument;
 use Maxchene\Typesense\TypesenseSearch;
@@ -14,7 +15,7 @@ App::plugin('maxchene/typesense', [
         'num_typos' => 2,
     ],
     'siteMethods' => [
-        'typesenseSearch' => function (string $query): array {
+        'typesenseSearch' => function (string $query): SearchResult {
             $searchEngine = new TypesenseSearch();
             return $searchEngine->search($query);
         }

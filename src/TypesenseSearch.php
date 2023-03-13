@@ -36,8 +36,8 @@ class TypesenseSearch
             'page' => $page
         ]);
         $url = "{$this->searchUrl}{$query->toString(true)}";
-        $data = $this->client->get($url);
-        return $data;
+        ['found' => $resultsCount, 'hits' => $searchItems] = $this->client->get($url);
+        return new SearchResult(array_map(fn(array $item) => new TypesenseItem($item), $searchItems), $resultsCount);
     }
 
 }
