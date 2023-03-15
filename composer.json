@@ -39,6 +39,7 @@
         "search"
     ],
     "require-dev": {
-        "symfony/var-dumper": "^6.2"
+        "symfony/var-dumper": "^6.2",
+        "getkirby/cli": "^1.1"
     }
 }
