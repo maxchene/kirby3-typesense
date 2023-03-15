@@ -15,9 +15,9 @@ App::plugin('maxchene/typesense', [
         'num_typos' => 2,
     ],
     'siteMethods' => [
-        'typesenseSearch' => function (string $query): SearchResult {
+        'typesenseSearch' => function (string $query, int $limit = 30, int $page = 1): SearchResult {
             $searchEngine = new TypesenseSearch();
-            return $searchEngine->search($query);
+            return $searchEngine->search($query, $limit, $page);
         }
     ],
     'hooks' => [
@@ -74,5 +74,14 @@ App::plugin('maxchene/typesense', [
             }
 
         }
+    ],
+    'commands' => [
+        'typesense:rebuild' => [
+            'description' => 'Rebuild typesense index',
+            'rgs' => [],
+            'command' => function ($cli) {
+
+            }
+        ]
     ]
 ]);
