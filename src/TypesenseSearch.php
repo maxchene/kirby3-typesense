@@ -29,8 +29,7 @@ class TypesenseSearch
         $fields = A::join(TypesenseConfig::getFields(), ',');
         $query = new Query([
             'q' => $q,
-            // 'query_by' => 'title,content,zones,themes',
-            'query_by' => 'title,content',
+            'query_by' => $fields,
             'num_typos' => option('maxchene.typesense.num_typos'),
             'per_page' => $limit,
             'page' => $page

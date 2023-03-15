@@ -66,4 +66,31 @@ Here is what it should look like:
 
 ## 4. Use fulltext search
 
+All fields provided in the config file will be searched.
+
+| Param  | Description                        | Type    | Optionnal | Default value |
+|--------|------------------------------------|---------|-----------|---------------|
+| $query | your search string                 | string  | no        |               |
+| $limit | Maximum number of results per page | integer | yes       | 30            |
+| $page  | Page number                        | integer | yes       | 1             |
+
+<br>
+
+### 4.1 Site method
+
+This plugins gives you access to the ```$site->typesenseSearch(string $query, int $limit, int $page)``` method
+wherever ```$site``` is available: templates, controllers,...
+
+<br>
+
+### 4.2 Typesense Search
+
+You can also create a TypesenseSearch class :
+````php
+ $searchEngine = new TypesenseSearch();
+ $results =  $searchEngine->search($query, $limit, $page);
+
+````
+
+
 ## 5. Full configuration exemple
