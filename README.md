@@ -4,9 +4,10 @@ This plugin allow you to index kirby pages into typesense and make fulltext sear
 
 ## Overview
 
-> This plugin is free and under MIT license, i'm glad if you find it usefull. If you plan to use it for commercial use, or if i saved you some time,
-> please consider helping me maintaining this by either [making a donation](https://www.paypal.com/paypalme/maximechene) of your choice or sponsoring me.
-
+> This plugin is free and under MIT license, I'm glad if you find it usefull. If you plan to use it for commercial use,
+> or if I saved you some time,
+> please consider helping me to maintain this by either [making a donation](https://www.paypal.com/paypalme/maximechene)
+> of your choice or sponsoring me.
 
 ## 1. Install Typesense on your server
 
@@ -90,11 +91,13 @@ wherever ```$site``` is available: templates, controllers,...
 ### 4.2 Typesense Search
 
 You can also create a TypesenseSearch class :
+
 ````php
  $searchEngine = new TypesenseSearch();
  $results =  $searchEngine->search($query, $limit, $page);
 
 ````
 
+## 5. Command Line
 
-## 5. Full configuration exemple
+## 6. Full configuration exemple

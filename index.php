@@ -78,9 +78,10 @@ App::plugin('maxchene/typesense', [
     'commands' => [
         'typesense:rebuild' => [
             'description' => 'Rebuild typesense index, even if you change fields configuration',
-            'rgs' => [],
-            'command' => function ($cli) {
+            'args' => [],
+            'command' => function (Kirby\CLI\CLI $cli) {
                 // TODO build command
+                $cli->success('hello world');
 
             }
         ]
