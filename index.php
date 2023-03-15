@@ -80,6 +80,7 @@ App::plugin('maxchene/typesense', [
             'description' => 'Rebuild typesense index',
             'rgs' => [],
             'command' => function ($cli) {
+                // TODO build command
 
             }
         ]
