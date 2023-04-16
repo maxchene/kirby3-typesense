@@ -90,7 +90,7 @@ wherever ```$site``` is available: templates, controllers,...
 
 ### 4.2 Typesense Search
 
-You can also create a TypesenseSearch class :
+You can also create a TypesenseSearch instance :
 
 ````php
  $searchEngine = new TypesenseSearch();
@@ -101,3 +101,9 @@ You can also create a TypesenseSearch class :
 ## 5. Command Line
 
 ## 6. Full configuration exemple
+
+## 7. TODOS
+
+- add command line tools
+- improve docs or enable wiki pages for this repo
+- maybe add a Page method to build indexed content
