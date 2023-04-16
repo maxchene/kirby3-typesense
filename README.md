@@ -7,7 +7,7 @@ This plugin allow you to index kirby pages into typesense and make fulltext sear
 > This plugin is free and under MIT license, I'm glad if you find it usefull. If you plan to use it for commercial use,
 > or if I saved you some time,
 > please consider helping me to maintain this by either [making a donation](https://www.paypal.com/paypalme/maximechene)
-> of your choice or sponsoring me.
+> of your choice or [sponsoring me](https://github.com/sponsors/maxchene).
 
 ## 1. Install Typesense on your server
 
