@@ -27,7 +27,7 @@ class TypesenseConfig
 
     public static function isIndexable(Page $page): bool
     {
-        return in_array($page->template()->name(), self::getTemplates());
+        return in_array($page->template()->name(), self::getTemplates()) && $page->isPublished();
     }
 
     public static function getNormalizer(Page $page): Closure

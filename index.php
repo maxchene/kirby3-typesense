@@ -21,8 +21,9 @@ App::plugin('maxchene/typesense', [
         }
     ],
     'hooks' => [
-        'page.update:after' => function (Page $newPage) {
-            if (TypesenseConfig::isIndexable($newPage) && $newPage->isPublished()) {
+        'page.update:after' => function (Page $newPage, Page $oldPage) {
+
+            if (TypesenseConfig::isIndexable($newPage)) {
                 $document = new TypesenseDocument($newPage);
                 $document
                     ->setNormalizer(TypesenseConfig::getNormalizer($newPage))
@@ -58,16 +59,15 @@ App::plugin('maxchene/typesense', [
         },
         'page.changeStatus:after' => function (Page $newPage, Page $oldPage) {
 
-
             // if new status is published and page is indexable, upsert
-            if ($newPage->isPublished() && TypesenseConfig::isIndexable($newPage)) {
+            if (TypesenseConfig::isIndexable($newPage)) {
                 $document = new TypesenseDocument($newPage);
                 $document
                     ->setNormalizer(TypesenseConfig::getNormalizer($newPage))
                     ->upsert();
             }
 
-            // if new status is unpublished, delete document
+            // if new status is unpublished, delete document from typesense index
             if ($newPage->isDraft()) {
                 $document = new TypesenseDocument($newPage);
                 $document->delete();
