@@ -12,6 +12,7 @@ class TypesenseDocument
     private readonly TypesenseClient $client;
 
     private readonly array $schema;
+    private Closure $normalizer;
 
     public function __construct(
         private readonly Page $page
@@ -32,7 +33,7 @@ class TypesenseDocument
      * @return void
      * @throws \Kirby\Exception\InvalidArgumentException
      */
-    public function upsert()
+    public function upsert(): void
     {
 
         if (empty($this->normalizer)) {
